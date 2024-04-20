@@ -23,7 +23,10 @@ const userSchema = new mongoose.Schema({
     },
     geners:[{
         type:String
-    }]
+    }],
+    refreshtoken:{
+        type:String
+    }
 },{
     timestamps:true
 })
