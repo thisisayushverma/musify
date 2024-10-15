@@ -2,16 +2,24 @@ import mongoose, { Schema } from "mongoose";
 
 const audioSchema = new mongoose.Schema({
     name:{
+        type:String
+    },
+    thumbnail:{
+        type:String
+    },
+    uniquename:{
+        type:String
+    },
+    audiourl:{
         type:String,
         required:true
     },
-    image:{
-        type:String,
-        required:true
+    duration:{
+        type:Number
     },
-    audiofile:{
-        type:String,
-        required:true
+    isPublished:{
+        type:Boolean,
+        default:false
     },
     owner:{
         type:Schema.Types.ObjectId,
@@ -20,8 +28,4 @@ const audioSchema = new mongoose.Schema({
 },{
     timestamps:true
 })
-
-
-
-
 export const Audio=mongoose.model("Audio",audioSchema)

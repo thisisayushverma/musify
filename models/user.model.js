@@ -18,12 +18,15 @@ const userSchema = new mongoose.Schema({
         minLength:[8,"Too Short"]
     },
     avatar:{
-        type:String,
-        required:true
+        type:String
     },
     geners:[{
         type:String
     }],
+    isverified:{
+        type:Boolean,
+        default:false
+    },
     refreshtoken:{
         type:String
     }
@@ -52,7 +55,7 @@ userSchema.methods.generateAccessToken = function(){
     })
 }
 
-userSchema.methods.generateRefreshToken = async function(){
+userSchema.methods.generateRefreshToken = function(){
     return jwt.sign({
         _id:this._id,
     },

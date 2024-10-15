@@ -17,12 +17,13 @@ app.use(express.urlencoded({
 app.use(express.static("public"))
 app.use(cookieParser())
 
+
 // routes import
 import userRoutes from "./routes/user.routes.js";
-
+import audioRoutes from "./routes/audio.routes.js"
 // routes decleration
 
 app.use('/api/v1/users',userRoutes)
-
+app.use('/api/v1/audio',audioRoutes)
 
 export {app}
